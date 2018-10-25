@@ -24,7 +24,7 @@ let defaultOptions = {
 }
 
 function useWindowScrollPosition(options) {
-  let opts = Object.assign(defaultOptions, options)
+  let opts = Object.assign({}, defaultOptions, options)
 
   let [position, setPosition] = useState(getPosition())
 
