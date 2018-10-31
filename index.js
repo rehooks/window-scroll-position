@@ -20,7 +20,6 @@ let getPosition = () => ({
 
 let defaultOptions = {
   throttle: 100,
-  passive: true,
 }
 
 function useWindowScrollPosition(options) {
@@ -36,7 +35,7 @@ function useWindowScrollPosition(options) {
     window.addEventListener(
       'scroll',
       handleScroll,
-      supportsPassive && opts.passive ? { passive: true } : false
+      supportsPassive ? { passive: true } : false
     )
 
     return () => {

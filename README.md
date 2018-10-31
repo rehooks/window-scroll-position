@@ -22,7 +22,6 @@ function MyComponent() {
   // optionally you can pass options, those are default:
   let options = {
     throttle: 100,
-    passive: true,
   }
   let position = useWindowScrollPosition(options)
   // position == { x: 0, y: 0 }
