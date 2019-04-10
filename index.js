@@ -39,6 +39,7 @@ function useWindowScrollPosition(options) {
     )
 
     return () => {
+      handleScroll.cancel()
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
