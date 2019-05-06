@@ -1,6 +1,6 @@
 {
   "name": "@rehooks/window-scroll-position",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React hook for Window scroll position",
   "main": "index.js",
   "repository": "https://github.com/rehooks/window-scroll-position",
