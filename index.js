@@ -4,19 +4,26 @@ let _throttle = require('lodash.throttle')
 
 let supportsPassive = false
 try {
-  var opts = Object.defineProperty({}, 'passive', {
-    get: function() {
-      supportsPassive = true
-    },
-  })
-  window.addEventListener('testPassive', null, opts)
-  window.removeEventListener('testPassive', null, opts)
+  if (typeof window !== 'undefined') {
+    var opts = Object.defineProperty({}, 'passive', {
+      get: function() {
+        supportsPassive = true
+      },
+    })
+    window.addEventListener('testPassive', null, opts)
+    window.removeEventListener('testPassive', null, opts)
+  }
 } catch (e) {}
 
-let getPosition = () => ({
-  x: window.pageXOffset,
-  y: window.pageYOffset,
-})
+let getPosition = () => {
+  if (typeof window === 'undefined') {
+    return { x: 0, y: 0 };
+  }
+  return {
+    x: window.pageXOffset,
+    y: window.pageYOffset,
+  };
+};
 
 let defaultOptions = {
   throttle: 100,
